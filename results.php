@@ -9,17 +9,21 @@ try {
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-echo("success");
+$email= $sql="SELECT pkuser FROM user IN email";
+
 $name=$_POST['firstname'];
+// $email=$_POST['user'];
 $lastname=$_POST['lastname'];
 $race=$_POST['race'];
 $age=$_POST['age'];
-  $sql = $conn->prepare("INSERT INTO tblChars (firstname, lastname, race, age)
-  VALUES (:firstname, :lastname, :race, :age)");
+  $sql = $conn->prepare("INSERT INTO tblChars (userID, firstname, lastname, race, age)
+  VALUES (:email :firstname, :lastname, :race, :age)");
+  $sql->bindValue(":email", $email);
   $sql->bindValue(":firstname", $name);
   $sql->bindValue(":lastname", $lastname);
   $sql->bindValue(":race", $race);
   $sql->bindValue(":age", $age);
+  echo("success");
 //   $stmt = $conn->prepare("SELECT firstname FROM tblChars"); 
 //   // use exec() because no results are returned
 //   $stmt->execute();

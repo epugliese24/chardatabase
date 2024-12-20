@@ -28,6 +28,7 @@ $dbname = "database1";
 echo('<form method=POST action="results.php">');
 echo('<header>header</header>');
 echo('<div id="inputBox">');
+echo('<input type=text name="user" placeholder="enter username"> <br>');
 echo('<input type=text name="firstname" placeholder="first name here"> <br>');
 echo('<input type=text name="lastname" placeholder="last name here"><br>');
 echo('<input type=text name="race" placeholder="race here"><br>');
